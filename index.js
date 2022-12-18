@@ -16,15 +16,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 async function run() {
     try {
-        const cse_1301_Physics_StudentCollection = client.db('spring2023').collection('cse-1301-physics');
-        // const batch_62_StudentCollection = client.db('spring2023').collection('62Batch');
         const studentCollection = client.db('spring2023').collection('student-list');
-
-        app.post('/cse-1301-physics', async (req, res) => {
-            const cse_1301_physics = req.body;
-            const result = await cse_1301_Physics_StudentCollection.insertOne(cse_1301_physics);
-            res.send(result);
-        });
 
         app.post('/student-list', async (req, res) => {
             const studentList = req.body;
